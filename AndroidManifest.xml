@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="rxinns.apkextractor.agent"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="1"
+        android:targetSdkVersion="34" />
+
+    <!-- 列全部已安装包（Android 11+ 必需） -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <!-- 写到下载目录。API 29+ 走 MediaStore 不需要权限，以下才需要 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <application
+        android:label="Agent用安装包提取器（传入包名参数，自动提取到系统下载目录）"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar">
+
+        <activity
+            android:name="rxinns.apkextractor.agent.ExtractActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+
+            <!-- 1) 主页图标：无参数进来只弹提示 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- 2) -d "pkg://com.xxx" 等 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="pkg" />
+                <data android:scheme="package" />
+                <data android:scheme="apkextract" />
+            </intent-filter>
+
+            <!-- 3) -a rxinns.apkextractor.agent.EXTRACT -->
+            <intent-filter>
+                <action android:name="rxinns.apkextractor.agent.EXTRACT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

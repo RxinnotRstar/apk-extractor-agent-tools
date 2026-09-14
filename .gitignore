@@ -1,0 +1,33 @@
+# ---- 构建产物 ----
+build/
+*.apk
+*.idsig
+*.ap_
+
+# ---- 签名材料（泄露 = 任何人可伪造同包名更新）----
+*.keystore
+*.jks
+*.p12
+*.pepk
+
+# ---- 编译中间件 ----
+*.class
+*.dex
+*.jar
+
+# ---- 编辑器 / IDE ----
+.idea/
+*.iml
+.vscode/
+*.swp
+*~
+
+# ---- 系统垃圾 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 临时文件 ----
+*.log
+*.tmp
+*.bak
