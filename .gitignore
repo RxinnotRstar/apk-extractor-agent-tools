@@ -1,5 +1,6 @@
 # ---- 构建产物 ----
 build/
+preview/
 *.apk
 *.idsig
 *.ap_
@@ -31,3 +32,13 @@ desktop.ini
 *.log
 *.tmp
 *.bak
+
+# ---- 上传到 GitHub 用的载荷包（网页上传路线，不该入库）----
+payload.zip
+
+# ---- Python ----
+__pycache__/
+*.pyc
+
+# ---- 上传时的一次性删除清单（临时指令，不该入库）----
+.unpack-delete

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="rxinns.apkextractor.agent"
+    package="rxinns.apk.extractor.foragent"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -26,7 +26,7 @@
         android:theme="@android:style/Theme.Translucent.NoTitleBar">
 
         <activity
-            android:name="rxinns.apkextractor.agent.ExtractActivity"
+            android:name="rxinns.apk.extractor.foragent.ExtractActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:noHistory="true"
@@ -47,9 +47,9 @@
                 <data android:scheme="apkextract" />
             </intent-filter>
 
-            <!-- 3) -a rxinns.apkextractor.agent.EXTRACT -->
+            <!-- 3) -a rxinns.apk.extractor.foragent.EXTRACT -->
             <intent-filter>
-                <action android:name="rxinns.apkextractor.agent.EXTRACT" />
+                <action android:name="rxinns.apk.extractor.foragent.EXTRACT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
